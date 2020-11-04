@@ -377,6 +377,7 @@ main {
 	height: 100%;
 	min-height: 100vh;
 	transition: background-color 0.8s;
+
 }
 
 
@@ -554,7 +555,7 @@ TODO:
 yazıyı değiştirmenin yolunu bul. 
 */
 .js .content__block--today {
-	
+
 	
     
 }

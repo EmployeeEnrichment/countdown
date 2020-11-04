@@ -65,7 +65,7 @@
 		previewTitle: '',
 		inactive: false
 	};
-
+    
 	// Build the 3D cube element.
 	Day.prototype._layout = function() {
 		/* The Cube structure:
@@ -80,12 +80,18 @@
 		*/
 		this.cube = document.createElement('div');
 		this.cube.className = this.isActive ? 'cube' : 'cube cube--inactive';
-		this.cube.innerHTML = '<div class="cube__side cube__side--back"></div><div class="cube__side cube__side--left"></div><div class="cube__side cube__side--right"></div><div class="cube__side cube__side--bottom"></div><div class="cube__side cube__side--top"></div><div class="cube__side cube__side--front"></div></div>';
+		this.cube.innerHTML = '<div class="cube__side cube__side--back"></div><div class="cube__side cube__side--left"></div><div class="cube__side cube__side--right"></div><div class="cube__side cube__side--bottom"></div><div class="cube__side cube__side--top"></div><div class="cube__side cube__side--front"></div>';
 		this.currentTransform = {translateZ: 0, rotateX: 0, rotateY: 0};
         
+                       
 	};
     
 
+    
+   
+    
+    
+    
 	Day.prototype._rotate = function(ev) {
 		anime.remove(this.cube);
 
@@ -201,6 +207,8 @@
 			self.cubes.appendChild(day.cube);
 			self.el.removeChild(d);
 			self._initDayEvents(day);
+            
+                
 		});
 
 		// structure to show each day preview (day + title + subtitle etc, when the user hovers one day/cube).
@@ -209,6 +217,10 @@
 		this.el.appendChild(this.dayPreview);
 		
 		this._initEvents();
+        
+        
+        
+        
 	}
 
 	Calendar.prototype._initEvents = function() {
@@ -285,8 +297,10 @@
 						translateZ: [-1500,0],
 						rotateX: 0,
 						rotateY: 0
+                   
 					});
 					day.isRotated = false;
+                     
 				}
 				else {
 					anime({
@@ -300,6 +314,8 @@
 						translateZ: [3000,0],
 						rotateY: 0
 					});
+                    
+                      
 				}
 			}
 		};
@@ -438,11 +454,12 @@
 	Calendar.prototype._showPreviewTitle = function(text, number) {
 		this.dayPreview.innerHTML = text;
 		this.dayPreview.setAttribute('data-number',parseInt(number+1));
-		
+		       
 		this.txtfx = new TextFx(this.dayPreview);
 		this.txtfx.hide();
 		this.dayPreview.style.opacity = 1;
 		this.txtfx.show({
+                 
 			in: {
 				duration: 800,
 				delay: function(el, index) { return index*20; },
@@ -453,6 +470,12 @@
 				}
 			}
 		});
+        
+        //hover date 
+       console.log('acaba oldu mu' + parseInt(number));
+    
+
+    
 	};
 
 	Calendar.prototype._hidePreviewTitle = function() {
@@ -478,11 +501,7 @@
         
         // TODO: add future & past days
         
-        
-         var d = new Date();
-         var todaysDate = d.getDate();
       
-
            if (todaysDate == day.number) {
              console.log('today');
              content.classList.add('content__block--today');
@@ -502,9 +521,7 @@
               content.classList.add('content__block--past');
            }
        
-        
-        
-         
+                 
 		content.classList.add('content__block--current');
 
 		day.titlefx.hide();
@@ -603,6 +620,10 @@
 		bgEl.style.backgroundColor = defaultBgColor;
 	};
 
+    
+    
+
+    
 	// Snow obj. Based on // https://gist.github.com/OmShiv/4368164.
 	function Snow() {
 		this.canvas = document.createElement('canvas');
@@ -728,10 +749,15 @@
         mydescription = contentEl.querySelector('deneme'),
 		isMobile = mobilecheck();
     ;
-
-   
+  
+    var d = new Date();
+    var todaysDate = d.getDate();
+    var bugun = document.getElementById('tarih');
+    
+    
 	function init() {
 		layout();
+        tarih();
 	}
 
 	function layout() {
@@ -742,6 +768,8 @@
 			bgEl = snow.canvas;
 		}
 	}
+    
+   
 
 	init();
 
