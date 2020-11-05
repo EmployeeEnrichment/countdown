@@ -153,11 +153,16 @@
 				rotateZ: function(el, index) { return [anime.random(-20,20), 0]; }
 			},
 			out: {
-				duration: 800,
-				delay: 400,
-				easing: 'easeInExpo',
-				opacity: 0,
-				translateY: 350
+				duration: 0,
+				delay: 0,
+				easing: 'easeInOutElastic',
+				opacity: {
+					duration: 200,
+					value: [1,1],
+					easing:'linear'
+				},
+				translateY: [100,0],
+                rotateZ: function(el, index) { return [anime.random(-20,20), 0]; }
 			}
 		};
 	};
@@ -192,17 +197,19 @@
 			// Get the bg color defined in the data-bg-color of each division.
 			var day = new Day({
 					number: pos,
-					color: d.getAttribute('data-bg-color') || '#f1f1f1',
+					color: d.getAttribute('#f1f1f1'),
 					previewTitle: d.getAttribute('data-title') || '',
 					inactive: d.hasAttribute('data-inactive')
 				}),
 				content = contents[pos];
 
 			if( content !== undefined ) {
-				var contentTitle = contents[pos].querySelector('.content__title');
+                
+                var contentTitle = contents[pos].querySelector('.content__title');
 				day._setContentTitleFx(contentTitle);
 			}
-
+            
+            
 			self.days.push(day);
 			self.cubes.appendChild(day.cube);
 			self.el.removeChild(d);
@@ -561,7 +568,7 @@
 			duration: 500,
 			delay: 800,
 			easing: 'easeOutExpo',
-			opacity: [0,1],
+			opacity: [0,0.4],
 			translateX: [100,0]
 		});
 	};
@@ -575,8 +582,6 @@
 			description = content.querySelector('.content__description'),
 			meta = content.querySelector('.content__meta');
 
-    
-        
         
 		// The content number placeholder animation.
 		anime({
@@ -752,12 +757,12 @@
   
     var d = new Date();
     var todaysDate = d.getDate();
-    var bugun = document.getElementById('tarih');
+   // var bugun = document.getElementById('tarih');
     
     
 	function init() {
 		layout();
-        tarih();
+      //  tarih();
 	}
 
 	function layout() {

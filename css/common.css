@@ -6,7 +6,7 @@
 
 body {
 	font-family: 'Mali', Mali, 'Avenir', Avenir,  sans-serif;
-	color: #3f3f45;
+	color: ghostwhite;
 	background: #A92837;
 	transition: background-color 0.8s;
 	-webkit-font-smoothing: antialiased;
@@ -170,27 +170,6 @@ main {
 	display: inline-block;
 	margin: 0.5em;
 	padding: 0.5em;
-}
-
-/* Demo links */
-
-.codrops-demos {
-	margin: 0.25em 0;
-	padding: 0 1em;
-	font-weight: bold;
-}
-
-.codrops-demos a {
-	display: inline-block;
-	margin: 0 0.5em 0 0;
-}
-
-.codrops-demos a.current-demo {
-	color: #333;
-}
-
-.codrops-demos a.current-demo::after {
-	display: none;
 }
 
 
@@ -414,7 +393,7 @@ main {
 /* number before title */
 
 .title::before {
-	content: attr(data-number);
+	content: attr(data-number +1);
 	display: inline-block;
 	margin-right: 0.5em;
 	color: white;
@@ -455,6 +434,7 @@ main {
 
 .content__block {
 	padding: 10vh 5vw;
+/*content in sol tarafı background-color:*/
 }
 
 .js .content__block {
@@ -482,10 +462,12 @@ main {
 }
 
 .content__title {
+    
     font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
 	font-size: 7vw;
 	line-height: 0.85;
 	margin: 0;
+  
 }
 
 .content__description {
@@ -506,6 +488,7 @@ main {
 
 .content__number {
 	position: absolute;
+    opacity: 0.5;
 }
 
 .btn-back {

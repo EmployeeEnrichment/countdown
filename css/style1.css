@@ -3,7 +3,7 @@
 .no-js .cube {
 	border: 0.75vw solid #fff;
 	outline: 1px solid #fff;
-	background: #f0f0f0 url(../img/image.002.png) no-repeat center center;
+	background: #f0f0f0 url(../img/r.032.png) no-repeat center center;
 }
 .cube:not(.cube--inactive):nth-child(1) .cube__side,
 .no-js .cube:not(.cube--inactive):nth-child(1) {
