@@ -79,18 +79,17 @@
 		</div>
 		*/
 		this.cube = document.createElement('div');
-		this.cube.className = this.isActive ? 'cube' : 'cube cube--inactive';
-		this.cube.innerHTML = '<div class="cube__side cube__side--back"></div><div class="cube__side cube__side--left"></div><div class="cube__side cube__side--right"></div><div class="cube__side cube__side--bottom"></div><div class="cube__side cube__side--top"></div><div class="cube__side cube__side--front"></div>';
-		this.currentTransform = {translateZ: 0, rotateX: 0, rotateY: 0};
         
-                       
+        
+        this.cube.className = this.isActive ? 'cube' : 'cube cube--inactive';
+
+        this.cube.innerHTML = '<div class="cube__side cube__side--back"></div><div class="cube__side cube__side--left"></div><div class="cube__side cube__side--right"></div><div class="cube__side cube__side--bottom"></div><div class="cube__side cube__side--top"></div><div class="cube__side cube__side--front"></div>';
+        this.currentTransform = {translateZ: 0, rotateX: 0, rotateY: 0};
+        
+           
 	};
     
 
-    
-   
-    
-    
     
 	Day.prototype._rotate = function(ev) {
 		anime.remove(this.cube);
@@ -413,6 +412,8 @@
                             console.log('instance number: '+instance.number);
                             
                         }
+                    
+               
                     else
                            {
                                console.log('instance number: '+instance.number);
@@ -478,10 +479,7 @@
 			}
 		});
         
-        //hover date 
-       console.log('acaba oldu mu' + parseInt(number));
-    
-
+        
     
 	};
 
@@ -501,21 +499,24 @@
 			description = content.querySelector('.content__description'),
 			meta = content.querySelector('.content__meta');
 
+        
+        console.log('monthNumber'+monthNumber);
+        
       //TODO: Create seperate content for day 30
-      console.log('current day: '+this.currentDayIdx+'gun sayı:'+day.number);
-     
+   /*     console.log('current day: '+this.currentDayIdx+'gun sayı:'+day.number);
+      console.log('todaysDate='+todaysDate+'day number:'+day.number);
         
         
         // TODO: add future & past days
         
-      
+    
            if (todaysDate == day.number) {
-             console.log('today');
+             console.log('bugun');
              content.classList.add('content__block--today');
                
            }
            if (todaysDate < day.number) {
-               console.log('future');
+               console.log('gelecek');
                content.classList.add('content__block--future');
                
                description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
@@ -523,10 +524,479 @@
              
             
            }
-           if (todaysDate >= day.number) {
-              console.log('past');
+           if (todaysDate > day.number) {
+              console.log('gecmis');
               content.classList.add('content__block--past');
+                 description.innerHTML='sorryy';
+               meta.innerHTML='';
            }
+  	*/
+        
+        
+        
+        if (day.number == 0 && (monthNumber==10 ) && (todaysDate ==30)){
+           
+
+            console.log('oldu!'+'day number:'+(day.number)+'monthdate:'+monthNumber);
+        
+            
+             if(todaysDate < day.number-1 ){
+                   
+                 description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                 meta.innerHTML='';
+             }
+              
+           }
+        else if (day.number == 1 && (monthNumber==10 ) && (todaysDate ==30)){
+           
+
+            console.log('oldu!'+'day number:'+(day.number)+'monthdate:'+monthNumber);
+        
+            
+             if(todaysDate < day.number-1 ){
+                   
+                 description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                 meta.innerHTML='';
+             }
+              
+           }
+        
+        
+        else if (todaysDate == 1) {
+
+             if(todaysDate < day.number ){
+                   
+                 description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                 meta.innerHTML='';
+             }
+            
+        }
+        
+        else if (todaysDate == 2) {
+             
+            if(todaysDate < day.number-1 ){
+                
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+             else if(todaysDate > day.number) {
+                
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+               
+        }
+        
+        else if (todaysDate == 3) {
+
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+               
+        }
+        
+        else if(todaysDate == 4) {
+            
+            if(todaysDate < day.number-2 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 5) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 6) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+2){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 7) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 8) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 9) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 10) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 11) {
+            
+            if(todaysDate < day.number-2 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 12) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 13) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+2){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 14) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 15) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 16) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 17) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 18) {
+            
+            if(todaysDate < day.number-2 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 19) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 20) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+2){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 21) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 22) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 23) {
+            
+            if(todaysDate < day.number-4 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 24) {
+            
+            if(todaysDate < day.number-3 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 25) {
+            
+            if(todaysDate < day.number-2 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+2){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 26) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+3){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 27) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+4){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+
+        else if(todaysDate == 28) {
+            
+            if(todaysDate < day.number-1 ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 29) {
+            
+            if(todaysDate < day.number ){
+                     
+                    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+                    meta.innerHTML='';
+            }
+              
+            else if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 30 && (monthNumber != 10)) {
+            
+           
+              
+             if(todaysDate > day.number){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        else if(todaysDate == 31) {
+            
+            
+              
+             if(todaysDate > day.number+1){
+                    description.innerHTML='Sorry! This activity has expired. Please check today\'s activity.';
+                    meta.innerHTML='';
+            }
+            
+        }
+        
+        
+ else{ 
+    console.log('else icindeyiz');
+    description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+    meta.innerHTML='';
+     
+ }
+        
        
                  
 		content.classList.add('content__block--current');
@@ -561,7 +1031,7 @@
      
         
         
-       console.log('sayıcık : '+contentNumber.innerHTML );
+    //   console.log('sayıcık : '+contentNumber.innerHTML );
       
 		anime({
 			targets: contentNumber,
@@ -757,6 +1227,7 @@
   
     var d = new Date();
     var todaysDate = d.getDate();
+    var monthNumber = d.getMonth();
    // var bugun = document.getElementById('tarih');
     
     
