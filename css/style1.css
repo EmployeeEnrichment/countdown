@@ -5,6 +5,7 @@
 	outline: 1px solid #fff;
 	background: #f0f0f0 url(../img/r.032.png) no-repeat center center;
 }
+
 .cube:not(.cube--inactive):nth-child(1) .cube__side,
 .no-js .cube:not(.cube--inactive):nth-child(1) {
 	background-image: url(../img/r.030.png);
@@ -290,11 +291,6 @@
 	text-indent: -0.175em;
 	letter-spacing: -0.175em;
 	color: #fff;
-}
-
-.benimstilim
-{
-    background-color: red;
 }
 
 

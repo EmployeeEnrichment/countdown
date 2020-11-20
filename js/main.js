@@ -501,44 +501,12 @@
 
         
         console.log('monthNumber'+monthNumber);
-        
-      //TODO: Create seperate content for day 30
-   /*     console.log('current day: '+this.currentDayIdx+'gun sayı:'+day.number);
-      console.log('todaysDate='+todaysDate+'day number:'+day.number);
-        
-        
-        // TODO: add future & past days
-        
-    
-           if (todaysDate == day.number) {
-             console.log('bugun');
-             content.classList.add('content__block--today');
-               
-           }
-           if (todaysDate < day.number) {
-               console.log('gelecek');
-               content.classList.add('content__block--future');
-               
-               description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
-               meta.innerHTML='';
-             
-            
-           }
-           if (todaysDate > day.number) {
-              console.log('gecmis');
-              content.classList.add('content__block--past');
-                 description.innerHTML='sorryy';
-               meta.innerHTML='';
-           }
-  	*/
-        
-        
+   
         
         if (day.number == 0 && (monthNumber==10 ) && (todaysDate ==30)){
            
 
-            console.log('oldu!'+'day number:'+(day.number)+'monthdate:'+monthNumber);
-        
+                  
             
              if(todaysDate < day.number-1 ){
                    
@@ -549,8 +517,6 @@
            }
         else if (day.number == 1 && (monthNumber==10 ) && (todaysDate ==30)){
            
-
-            console.log('oldu!'+'day number:'+(day.number)+'monthdate:'+monthNumber);
         
             
              if(todaysDate < day.number-1 ){
@@ -991,7 +957,7 @@
         
         
  else{ 
-    console.log('else icindeyiz');
+   
     description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
     meta.innerHTML='';
      

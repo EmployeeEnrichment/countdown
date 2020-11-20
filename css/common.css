@@ -14,7 +14,8 @@ body {
 }
 
 a {
-	color: white; font-size: 2em;
+	color: #777785;
+    font-size: 2em;
 	outline: none;
 	display: inline-block;
 	position: relative;
